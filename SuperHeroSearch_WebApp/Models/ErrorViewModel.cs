@@ -1,5 +1,3 @@
-using System;
-
 namespace SuperHeroSearch_WebApp.Models
 {
     public class ErrorViewModel

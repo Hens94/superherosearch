@@ -20,6 +20,7 @@ namespace SuperHeroSearch_WebApp
             services
                 .AddConfigs(Configuration)
                 .AddIoC()
+                .AddHttpClients(Configuration)
                 .AddControllersWithViews();
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env) =>
