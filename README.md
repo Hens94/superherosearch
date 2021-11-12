@@ -54,6 +54,10 @@ This web application allow the visitors to search for their favorite superhero o
 - [Bootstrap](https://getbootstrap.com)
 - [International Super Hero Truetype Font](https://www.dafont.com/international-super.font)
 
+### Hosting With
+
+- [Azure](https://azure.microsoft.com/en-us/) ([https://superherowebapp20211111155405.azurewebsites.net/](https://superherowebapp20211111155405.azurewebsites.net/))
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
