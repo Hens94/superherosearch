@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace SuperHeroSearch_WebApp
 {
@@ -21,6 +22,8 @@ namespace SuperHeroSearch_WebApp
                 .AddConfigs(Configuration)
                 .AddIoC()
                 .AddHttpClients(Configuration)
+                .AddResponseCaching()
+                .AddSession(opt => opt.IdleTimeout = TimeSpan.FromMinutes(1))
                 .AddControllersWithViews();
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env) =>
@@ -31,9 +34,11 @@ namespace SuperHeroSearch_WebApp
                                 .UseBrowserLink(),
                     appb => appb.UseHsts())
                 .UseHttpsRedirection()
+                .UseSession()
                 .UseStaticFiles()
                 .UseRouting()
                 .UseAuthorization()
+                .UseResponseCaching()
                 .UseEndpoints(endpoints =>
                 {
                     endpoints.MapControllerRoute(
