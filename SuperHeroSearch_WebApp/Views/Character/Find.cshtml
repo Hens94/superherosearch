@@ -1,0 +1,144 @@
+﻿@model CharacterViewModel
+
+@{
+    ViewData["Title"] = "Character Information";
+    ViewData["blur"] = true;
+}
+
+@if (Model is not null)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 p-2">
+                <div class="card">
+                    <div class="card-header bg-primary">
+                        <h5 class="card-title text-light mb-0">@Model.Name</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row m-0 p-0 w-100 justify-content-between align-items-center mb-3">
+                            <div class="col-lg-8 col-12 d-flex align-items-center flex-md-row flex-column ">
+                                <img src="@Model.Image" class="img-thumbnail float-md-left" alt="Hero image" width="180" height="200">
+                                <dl class="row ml-md-3 p-3 m-0">
+                                    <dt class="col-sm-5 font-weight-bold">Fullname</dt>
+                                    <dd class="col-sm-7 font-weight-lighter">@Model.Biography.Fullname</dd>
+                                    <dt class="col-sm-5 font-weight-bold">Gender</dt>
+                                    <dd class="col-sm-7 font-weight-lighter">@Model.Appearance.Gender</dd>
+                                    <dt class="col-sm-5 font-weight-bold">Race</dt>
+                                    <dd class="col-sm-7 font-weight-lighter">@Model.Appearance.Race</dd>
+                                    <dt class="col-sm-5 font-weight-bold">Alter Egos</dt>
+                                    <dd class="col-sm-7 font-weight-lighter">@Model.Biography.Alteregos</dd>
+                                    <dt class="col-sm-5 font-weight-bold">Place of birth</dt>
+                                    <dd class="col-sm-7 font-weight-lighter">@Model.Biography.PlaceOfBirth</dd>
+                                    <dt class="col-sm-5 font-weight-bold">Alignment</dt>
+                                    <dd class="col-sm-7 font-weight-lighter">@Model.Biography.Alignment</dd>
+                                </dl>
+                            </div>
+                            <div class="col-lg-4 col-12 my-3 d-flex justify-content-center">
+                                <div class="position-relative float-lg-right float-none" style="width: 250px; height:250px;">
+                                    <canvas id="power-stats" width="250" height="250"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row px-4">
+                            <div class="accordion w-100" id="accordion-info">
+                                <div class="card">
+                                    <div class="card-header bg-transparent" style="cursor:pointer;" id="heading-work" data-toggle="collapse" data-target="#work-card" aria-expanded="true" aria-controls="work-card">
+                                        <h6 class="mb-0 font-weight-normal text-primary">
+                                            Work
+                                        </h6>
+                                    </div>
+
+                                    <div id="work-card" class="collapse" aria-labelledby="heading-work" data-parent="#accordion-info">
+                                        <div class="card-body">
+                                            <dl class="row">
+                                                <dt class="col-lg-2 col-md-3 col-sm-5 font-weight-bold">Occupation</dt>
+                                                <dd class="col-lg-10 col-md-9 col-sm-7 font-weight-lighter">@Model.Work.Occupation</dd>
+                                                <dt class="col-lg-2 col-md-3 col-sm-5 font-weight-bold">Base</dt>
+                                                <dd class="col-lg-10 col-md-9 col-sm-7 font-weight-lighter">@Model.Work.Base</dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-header bg-transparent" style="cursor:pointer;" id="heading-connection" data-toggle="collapse" data-target="#connection-card" aria-expanded="true" aria-controls="connection-card">
+                                        <h6 class="mb-0 font-weight-normal text-primary">
+                                            Connections
+                                        </h6>
+                                    </div>
+
+                                    <div id="connection-card" class="collapse" aria-labelledby="heading-connection" data-parent="#accordion-info">
+                                        <div class="card-body">
+                                            <dl class="row">
+                                                <dt class="col-lg-2 col-md-3 col-sm-5 font-weight-bold">Group Affiliation</dt>
+                                                <dd class="col-lg-10 col-md-9 col-sm-7 font-weight-lighter">@Model.Connections.GroupAffiliation</dd>
+                                                <dt class="col-lg-2 col-md-3 col-sm-5 font-weight-bold">Relatives</dt>
+                                                <dd class="col-lg-10 col-md-9 col-sm-7 font-weight-lighter">@Model.Connections.Relatives</dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts{
+        <script src="~/lib/chart/chart.min.js"></script>
+        <script type="text/javascript">
+            const ctx = $('#power-stats');
+            Chart.defaults.font.family = "'International Super Hero'";
+            const powerStatsChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Intelligence', 'Strength', 'Speed', 'Durability', 'Power', 'Combat'],
+                    datasets: [{
+                        label: 'Power stats',
+                        data: [
+                            @Model.Powerstats.Intelligence,
+                            @Model.Powerstats.Strength,
+                            @Model.Powerstats.Speed,
+                            @Model.Powerstats.Durability,
+                            @Model.Powerstats.Power,
+                            @Model.Powerstats.Combat
+                        ],
+                        fill: true,
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        pointBackgroundColor: 'rgb(255, 99, 132)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgb(255, 99, 132)'
+                    }]
+                },
+                options: {
+                    elements: {
+                        line: {
+                            borderWidth: 3
+                        }
+                    },
+                    scales: {
+                        r: {
+                            ticks: {
+                                beginAtZero: true,
+                                max: 100,
+                                min: 0,
+                                stepSize: 25,
+                                display: false
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        </script>
+    }
+}
