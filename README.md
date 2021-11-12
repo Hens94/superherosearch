@@ -121,6 +121,8 @@ Henry Gadea Mendoza - [LinkedIn](https://www.linkedin.com/in/henry-gadea-mendoza
 
 Project Link: [https://github.com/Hens94/superherosearch.git](https://github.com/Hens94/superherosearch.git)
 
+Azure Link: [https://superherowebapp20211111155405.azurewebsites.net/](https://superherowebapp20211111155405.azurewebsites.net/)
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
