@@ -1,0 +1,49 @@
+﻿@model SearchResultsViewModel
+
+@{
+    ViewData["Title"] = "Search";
+
+    if (Model is not null && Model.Results.Any())
+        ViewData["blur"] = true;
+    else
+        ViewData["blur"] = false;
+}
+
+@if (Model is not null && Model.Results.Any())
+{
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            @foreach (var item in Model.Results)
+            {
+                <div class="col-xl-4 col-lg-6 p-2">
+                    <div class="card shadow item-search">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="@item.Image" class="card-img h-100 hero-img" alt="Hero">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body d-flex flex-column justify-content-between p-0" style="min-height: 260px; height:100%;">
+                                    <div class="row m-0 p-0 flex-column bg-primary">
+                                        <h5 class="card-title text-light m-0 py-2 superhero-title">@item.Name</h5>
+                                    </div>
+                                    <div class="row m-0 px-3 py-1 mw-100">
+                                        <ul class="list-group list-group-flush w-100">
+                                            <li class="list-group-item small bg-transparent limit-value"><span class="font-weight-bold">Fullname </span>@item.Biography.Fullname</li>
+                                            <li class="list-group-item small bg-transparent limit-value"><span class="font-weight-bold">Gender </span>@item.Appearance.Gender</li>
+                                            <li class="list-group-item small bg-transparent limit-value"><span class="font-weight-bold">Race </span>@item.Appearance.Race</li>
+                                            <li class="list-group-item small bg-transparent limit-value"><span class="font-weight-bold">Occupation </span>@item.Work.Occupation</li>
+                                        </ul>
+                                    </div>
+                                    <div class="row justify-content-md-end justify-content-center m-0 p-3 w-100">
+                                        <a href="#" class="card-link w-100 btn btn-outline-primary">View details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+
