@@ -1,4 +1,16 @@
-﻿<form class="form-inline my-2 my-lg-0 col-sm-auto col-12" method="get" asp-action="Index" asp-controller="Character">
-    <input class="form-control mr-sm-2 " name="name" type="search" placeholder="Search" aria-label="Search">
+﻿@using Microsoft.AspNetCore.Http;
+@using SuperHeroSearch_WebApp.Helpers;
+
+@{
+    var results = SessionHelper.GetObjectFromJson<SearchResultsViewModel>(Context.Session, "search");
+    var searchValue = "";
+    if (results is not null)
+    {
+        searchValue = results.Filter ?? "";
+    }
+}
+
+<form class="form-inline my-2 my-lg-0 col-sm-auto col-12" method="get" asp-action="Index" asp-controller="Character">
+    <input class="form-control mr-sm-2 " name="name" type="search" placeholder="Search" aria-label="Search" value="@searchValue">
     <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
 </form>
