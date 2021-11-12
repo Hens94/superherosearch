@@ -1,7 +1,9 @@
 ﻿using Flurl;
 using HGUtils.Helpers.Configuration;
 using Microsoft.Extensions.Configuration;
+using SuperHeroSearch_App.Contracts;
 using SuperHeroSearch_App.Contracts.HttpClients;
+using SuperHeroSearch_App.Services;
 using SuperHeroSearch_App.Services.HttpClients;
 using SuperHeroSearch_Common.Configurations;
 using System;
@@ -15,7 +17,8 @@ namespace Microsoft.Extensions.DependencyInjection
                 .AddConfig<ApiConfig>(config);
 
         public static IServiceCollection AddIoC(this IServiceCollection services) =>
-            services;
+            services
+                .AddTransient<ISuperHero, SuperHeroService>();
 
         public static IServiceCollection AddHttpClients(this IServiceCollection services, IConfiguration config)
         {
