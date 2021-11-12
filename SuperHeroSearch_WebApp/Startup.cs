@@ -38,7 +38,7 @@ namespace SuperHeroSearch_WebApp
                 {
                     endpoints.MapControllerRoute(
                         name: "default",
-                        pattern: "{controller=Home}/{action=Index}/{id?}");
+                        pattern: "{controller=Character}/{action=Index}/{id?}");
                 });
 
     }
