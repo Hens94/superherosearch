@@ -58,14 +58,73 @@ html {
   min-height: 100%;
 }
 
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+@font-face {
+    font-family: "International Super Hero";
+    src: url("../fonts/internationalsuperhero/intshl.ttf") format("truetype");
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+
+@font-face {
+    font-family: "International Super Hero Title";
+    src: url("../fonts/internationalsuperhero/intsho.ttf") format("truetype");
+}
+
+body {
+    font-family: "International Super Hero", Calibri;
+    letter-spacing: 1px;
+    background-image: url(../img/bg.jpg);
+    background-repeat: repeat-y;
+    background-size: 100%;
+}
+
+#main-container {
+    padding-top: 65px;
+    height: 100vh;
+}
+
+.blur {
+    backdrop-filter: blur(6px);
+}
+
+.limit-value {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.superhero-title {
+    padding: 0 1.25rem;
+    font-family: "International Super Hero";
+    text-transform: uppercase;
+}
+
+.comic-title {
+    font-family: "International Super Hero Title";
+    text-transform: uppercase;
+}
+
+.hero-img {
+    max-height: 280px;
+}
+
+.item-search {
+    background-color: rgba(255,255,255,0.9);
+}
+
+.not-found-page {
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 15px; 
+}
+
+@media (max-width: 767px) {
+    .hero-img {
+        max-height: 100%;
+    }
+}
+
+@media (max-width: 575px) {
+    #main-container {
+        padding-top: 150px;
+    }
 }
