@@ -16,6 +16,30 @@ namespace SuperHeroSearch_WebApp.Controllers
             _superHero = superHero;
         }
 
+        private IActionResult ProcessResponse<TResult>(
+            (TResult, ErrorViewModel) response,
+            Func<ErrorViewModel, IActionResult> aditionalValidation = null) where TResult : class
+        {
+            (var result, var error) = response;
+
+            if (error is not null)
+            {
+                if (aditionalValidation is not null)
+                {
+                    var returnAction = aditionalValidation(error);
+
+                    if (returnAction is not null) return returnAction;
+                }
+
+                TempData["ErrorType"] = error.Type;
+                TempData["ErrorMessage"] = error.Message;
+
+                return View();
+            }
+
+            return View(result);
+        }
+
         [HttpGet]
         public async Task<IActionResult> Index(string name)
         {
@@ -24,17 +48,19 @@ namespace SuperHeroSearch_WebApp.Controllers
                 return View();
             }
 
-            (var result, var error) = await _superHero.Search(name);
+            return ProcessResponse(
+                await _superHero.Search(name));
+        }
 
-            if (error is not null)
-            {
-                TempData["ErrorType"] = error.Type;
-                TempData["ErrorMessage"] = error.Message;
-
-                return View();
-            }
-
-            return View(result);
+        [HttpGet("character/{id}")]
+        public async Task<IActionResult> Find(string id)
+        {
+            return ProcessResponse(
+                await _superHero.Character(id),
+                error =>
+                    error.Message.Equals("invalid id") ?
+                    RedirectToAction("NotFound404", "Error") :
+                    null);
         }
     }
 }
