@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperHeroSearch_WebApp", "SuperHeroSearch_WebApp\SuperHeroSearch_WebApp.csproj", "{DE3A32E2-7FF9-4486-B207-ACBE9AE89BBD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE3A32E2-7FF9-4486-B207-ACBE9AE89BBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE3A32E2-7FF9-4486-B207-ACBE9AE89BBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE3A32E2-7FF9-4486-B207-ACBE9AE89BBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE3A32E2-7FF9-4486-B207-ACBE9AE89BBD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DB1D4834-93F9-4B9D-9426-6515890AB0B8}
+	EndGlobalSection
+EndGlobal
