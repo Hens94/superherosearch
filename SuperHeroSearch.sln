@@ -5,6 +5,12 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperHeroSearch_WebApp", "SuperHeroSearch_WebApp\SuperHeroSearch_WebApp.csproj", "{DE3A32E2-7FF9-4486-B207-ACBE9AE89BBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperHeroSearch_Common", "SuperHeroSearch_Common\SuperHeroSearch_Common.csproj", "{AD1B3875-9B8D-4F69-BE1B-90F49AD32CBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperHeroSearch_App", "SuperHeroSearch_App\SuperHeroSearch_App.csproj", "{D2270E80-4563-4749-83C8-82497EA049B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperHeroSearch_Test", "SuperHeroSearch_Test\SuperHeroSearch_Test.csproj", "{CD54CC87-250B-4715-BC4E-87486D06C565}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{DE3A32E2-7FF9-4486-B207-ACBE9AE89BBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE3A32E2-7FF9-4486-B207-ACBE9AE89BBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE3A32E2-7FF9-4486-B207-ACBE9AE89BBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD1B3875-9B8D-4F69-BE1B-90F49AD32CBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD1B3875-9B8D-4F69-BE1B-90F49AD32CBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD1B3875-9B8D-4F69-BE1B-90F49AD32CBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD1B3875-9B8D-4F69-BE1B-90F49AD32CBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2270E80-4563-4749-83C8-82497EA049B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2270E80-4563-4749-83C8-82497EA049B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2270E80-4563-4749-83C8-82497EA049B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2270E80-4563-4749-83C8-82497EA049B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD54CC87-250B-4715-BC4E-87486D06C565}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD54CC87-250B-4715-BC4E-87486D06C565}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD54CC87-250B-4715-BC4E-87486D06C565}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD54CC87-250B-4715-BC4E-87486D06C565}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
